@@ -8,6 +8,9 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.name
+
 
 class Post(models.Model):
     STATUS_CHOICES = (
@@ -21,8 +24,17 @@ class Post(models.Model):
                              unique_for_date='published')  # уникальная по этому полю на день
     description = models.CharField(max_length=255, blank=True, null=True)
     content = models.TextField(null=True, blank=True)
-    published = models.DateTimeField(auto_now_add=True)  #, db_column="published_at" переименовывает поле в db\
+    published = models.DateTimeField(auto_now_add=True)  # , db_column="published_at" переименовывает поле в db\
     post_is_active = models.BooleanField(default=False)
     rating = models.DecimalField(max_digits=1, decimal_places=1)
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE) #, to_field='столбец' , on_delete = models.Set('value')
+    category = models.ForeignKey(Category,
+                                 on_delete=models.CASCADE)  # , to_field='столбец' , on_delete = models.Set('value')
+
+    class Meta:
+        verbose_name = 'Статью'
+        verbose_name_plural = 'Статьи'
+        ordering = ['id']
+
+    def __str__(self):
+        return self.title
