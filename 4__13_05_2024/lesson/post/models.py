@@ -26,7 +26,7 @@ class Post(models.Model):
     content = models.TextField(null=True, blank=True)
     published = models.DateTimeField(auto_now_add=True)  # , db_column="published_at" переименовывает поле в db\
     post_is_active = models.BooleanField(default=False)
-    rating = models.DecimalField(max_digits=1, decimal_places=1)
+    rating = models.DecimalField(max_digits=2, decimal_places=1)
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
     category = models.ForeignKey(Category,
                                  on_delete=models.CASCADE)  # , to_field='столбец' , on_delete = models.Set('value')
