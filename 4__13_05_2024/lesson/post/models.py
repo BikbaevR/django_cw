@@ -29,7 +29,7 @@ class Post(models.Model):
     rating = models.DecimalField(max_digits=2, decimal_places=1)
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
     category = models.ForeignKey(Category, related_name='posts',
-                                 on_delete=models.CASCADE)  # , to_field='столбец' , on_delete = models.Set('value')
+                                 on_delete=models.CASCADE)  # , to_field='столбец', on_delete = models.Set('value') , limit_choices_to='поле'
 
     # temp = models.OneToOneField() #связь один к одному
     # temp = models.ManyToManyField() #связь многие ко многим

@@ -13,6 +13,7 @@ def index(request):
     print(Post.objects.filter(category=category))
     print(category.posts.all())
 
+    # print(Post.objects.filter(category__name='текст')) У которого поле равно...
 
     # for post in posts:
     #     print(post.title)
