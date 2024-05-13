@@ -31,6 +31,9 @@ class Post(models.Model):
     category = models.ForeignKey(Category, related_name='posts',
                                  on_delete=models.CASCADE)  # , to_field='столбец' , on_delete = models.Set('value')
 
+    # temp = models.OneToOneField() #связь один к одному
+    # temp = models.ManyToManyField() #связь многие ко многим
+
     class Meta:
         verbose_name = 'Статью'
         verbose_name_plural = 'Статьи'
