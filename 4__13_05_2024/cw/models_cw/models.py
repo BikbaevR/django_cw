@@ -62,3 +62,11 @@ class IceCream(models.Model):
 class Kiosk(models.Model):
     name = models.CharField(max_length=25)
     ice_cream = models.OneToOneField(IceCream, on_delete=models.SET_NULL, null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'Киоск'
+        verbose_name_plural = 'Киоски'
+        ordering = ['id']
+
+    def __str__(self):
+        return self.name
