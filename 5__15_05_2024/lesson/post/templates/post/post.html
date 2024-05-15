@@ -5,13 +5,22 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>About</title>
+    <title>Document</title>
 </head>
 <body>
-    About
+
     <a href="{% url 'index_page' %}">index</a>
     <a href="{% url 'contact_page' %}">contact</a>
     <a href="{% url 'about_page' %}">about</a>
     <a href="{% url 'categories' %}">Категории</a>
+
+        <p>
+            {{ post.title }}<br />
+            {{ post.description }}<br />
+            {{ post.published_at }}<br />
+            {{ post.category }}<br />
+            {{ post.is_active }}<br />
+        </p>
+
 </body>
 </html>
