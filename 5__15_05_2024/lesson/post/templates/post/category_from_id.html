@@ -16,11 +16,7 @@
 
     {% for post in posts %}
         <p>
-            {{ post.title }}<br />
-            {{ post.description }}<br />
-            {{ post.published_at }}<br />
-            {{ post.category }}<br />
-            {{ post.is_active }}<br />
+            <a href="{% url 'post' id=post.id %}">{{ post.title }}</a><br />
         </p>
     {% endfor %}
 

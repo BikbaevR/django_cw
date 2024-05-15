@@ -21,6 +21,6 @@
             {{ post.category }}<br />
             {{ post.is_active }}<br />
         </p>
-
+         <a href="{% url 'delete' id=post.id %}">Удалить</a><br />
 </body>
 </html>

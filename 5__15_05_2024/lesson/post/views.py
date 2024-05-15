@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 
 from .models import Post, Category
@@ -33,8 +33,8 @@ def delete_post(request, id: int):
     post = Post.objects.get(pk=id).delete()
     posts = Post.objects.all()
 
-    return render(request, 'post/index.html', context={'posts': posts})
-
+    # return render(request, 'post/index.html', context={'posts': posts})
+    return redirect(index)
 
 def category_list(request):
     categories = Category.objects.all()
