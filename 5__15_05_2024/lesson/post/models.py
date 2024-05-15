@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 
@@ -20,6 +21,7 @@ class Post(models.Model):
     description = models.CharField(max_length=255)
     published_at = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    is_active = models.BooleanField(default=True)
 
     class Meta:
         verbose_name = 'Статью'
