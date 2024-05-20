@@ -11,7 +11,7 @@ class AdminCategory(admin.ModelAdmin):
 
 
 class AdminPost(admin.ModelAdmin):
-    list_display = ['title']
+    # list_display = ['title']
     search_fields = ['title']
     list_filter = ['title', 'is_published', 'published_date']
 
