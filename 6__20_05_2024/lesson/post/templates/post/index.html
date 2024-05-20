@@ -15,7 +15,7 @@
 
     {% for post in data %}
         <div>
-            <h3>{{forloop.counter0}}..{{post.id}}. {{post.title}}</h3>
+            <a href="{% url 'post_info' post_id=post.id %}">{{forloop.counter0}}..{{post.id}}. {{post.title}}</a>
             <p>
                 {{post.content}}<br/>
                 {{post.description}}<br/>
