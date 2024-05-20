@@ -10,11 +10,11 @@ from django.shortcuts import get_object_or_404
 def index(request):
     print('hello')
 
-    cat = Category.objects.get(pk=1)
+    # cat = Category.objects.get(pk=1)
     # cat = Category.objects.get(pk__gte=2)
     # cat = get_object_or_404(Category, name='asasdsad')
 
-    print(cat)
+    # print(cat)
 
     # post = Post(
     #     title='title 1',
@@ -46,14 +46,12 @@ def index(request):
     # post.description = 'asdasdasdasdsa'
     # post.save()
 
-    data1 = [
-        {
-            'title': 'title25',
-            'category': cat,
-        }
-    ]
-
-
+    # data1 = [
+    #     {
+    #         'title': 'title25',
+    #         'category': cat,
+    #     }
+    # ]
 
     # data = [
     #     Post(title='title6', category=cat),
@@ -62,8 +60,23 @@ def index(request):
     #     Post(title='title9', category=cat),
     # ]
 
-    data = list(map(lambda i: Post(**i), data1))
-
-    Post.objects.bulk_create(data)
+    # data = list(map(lambda i: Post(**i), data1))
+    #
+    # Post.objects.bulk_create(data)
 
     return HttpResponse("success")
+
+
+def posts(request):
+    # data = Post.objects.all()
+    data = Post.objects.order_by('-id').all()
+
+
+    return render(request, 'post/index.html', context={"data": data})
+
+
+def post_info(request, post_id):
+
+    post = get_object_or_404(Post, pk=post_id)
+
+    return render(request, 'post/post_info.html', context={'post': post})
