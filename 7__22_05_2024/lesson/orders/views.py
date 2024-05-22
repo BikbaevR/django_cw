@@ -27,8 +27,10 @@ def index(request):
     #gt >
     #gte >=
 
-    order = Order.objects.exclude(user='Пользователь')
-    print(order)
+    # order = Order.objects.exclude(user='Пользователь')
+    # print(order)
 
 
-    return HttpResponse('Пустая страница')
+
+
+    return render(request, 'orders/index.html')
