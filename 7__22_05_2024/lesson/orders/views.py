@@ -7,7 +7,6 @@ from .models import Product, Order
 
 
 def index(request):
-
     # product = Product.objects.all()
 
     # product = Product.objects.first()
@@ -22,15 +21,16 @@ def index(request):
     # print(order)
     # print(order.get_next_by_created())
 
-    #lf <
-    #lte <=
-    #gt >
-    #gte >=
+    # lf <
+    # lte <=
+    # gt >
+    # gte >=
 
     # order = Order.objects.exclude(user='Пользователь')
     # print(order)
 
-
-
-
     return render(request, 'orders/index.html')
+
+
+def product_info(request):
+    return render(request, 'orders/product_info.html')
