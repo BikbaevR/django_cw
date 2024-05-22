@@ -9,11 +9,15 @@ class AdminCategory(admin.ModelAdmin):
     search_fields = ['name']
     list_filter = ['name']
 
+    prepopulated_fields = {'slug': ('name',)}
+
 
 class AdminProduct(admin.ModelAdmin):
     list_display = ['name']
     search_fields = ['name']
     list_filter = ['name']
+
+    prepopulated_fields = {'slug': ('name',)}
 
 
 class AdminOrder(admin.ModelAdmin):
