@@ -9,13 +9,17 @@
 
     <style>
         body{
-            background-color: #454545;
+            background-color: #7d7d7d;
             color: white;
         }
     </style>
 </head>
 <body>
 
+    {% include 'orders/includes/header.html' with logo="logo text" %}
+
     {% block content %} default content {% endblock content %}
+
+    {% include 'orders/includes/footer.html' %}
 </body>
 </html>

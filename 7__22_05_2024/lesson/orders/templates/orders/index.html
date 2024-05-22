@@ -2,4 +2,14 @@
 
 {% block title %} my title {% endblock title %}
 
-{% block content %} <h1>Переопределили текст</h1> {% endblock content %}
+
+
+
+
+{% block content %}
+    <h2>Список продуктов</h2>
+    {% for product in products %}
+<!--        {% include 'orders/product_item.html' only %}-->
+        {% include 'orders/product_item.html' with product=product %}
+    {% endfor %}
+{% endblock content %}

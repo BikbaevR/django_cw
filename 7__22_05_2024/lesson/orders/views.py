@@ -28,8 +28,9 @@ def index(request):
 
     # order = Order.objects.exclude(user='Пользователь')
     # print(order)
+    products = Product.objects.all()
 
-    return render(request, 'orders/index.html')
+    return render(request, 'orders/index.html', context={"products": products})
 
 
 def product_info(request):
