@@ -10,6 +10,7 @@
     <h2>Список продуктов</h2>
     {% for product in products %}
 <!--        {% include 'orders/product_item.html' only %}-->
-        {% include 'orders/product_item.html' with product=product %}
+        <a href='{% url "product-info" slug=product.slug %}'>{{ product.id }}{{product.name}} </a>
+            <p>{{product.slug }}</p>
     {% endfor %}
 {% endblock content %}

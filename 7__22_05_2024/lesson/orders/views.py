@@ -33,5 +33,5 @@ def index(request):
     return render(request, 'orders/index.html', context={"products": products})
 
 
-def product_info(request):
+def product_info(request, slug):
     return render(request, 'orders/product_info.html')
