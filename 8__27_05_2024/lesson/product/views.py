@@ -41,9 +41,9 @@ def add_categ(request):
     return redirect(request.META.get('HTTP_REFERER'))
 
 
-def change_categ(request):
-    categ_id = request.POST.get('categ_id')
-    category = get_object_or_404(Category, pk=categ_id)
+def change_categ(request, categ_id):
+    categ_ids = request.POST.get('categ_id')
+    category = get_object_or_404(Category, pk=categ_ids)
     category.name = request.POST.get('new_categ_name')
     category.save()
     return redirect('index')
