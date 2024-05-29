@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изменение поста</title>
+    <link rel="stylesheet" href="{% static 'cw/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="forma">
+            <form class="form" action="/change_post" method="post">
+                {% csrf_token %}
+                <input class="input_text" type="hidden" name="id" placeholder="Заголовок" value="{{ post.id }} ">
+                <input class="input_text" type="text" name="title" placeholder="Заголовок" value="{{ post.title }}">
+                <input class="input_text" name="description" placeholder="Описание" value="{{ post.description }}">
+                <input class="input_text" type="text" name="author" placeholder="Автор" value="{{ post.author }}" disabled>
+                <select name="category">
+                    {% for category in categoryes %}
+                    <option {% if category.id == post.category.id %} selected {% endif %} value="{{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+                <button class="button" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

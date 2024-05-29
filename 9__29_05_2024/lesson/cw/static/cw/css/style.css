@@ -1,0 +1,61 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.forma{
+    width: max-content;
+    padding: 30px;
+    background-color:  rgb(159, 191, 252);
+
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 500px;
+}
+
+.input_text{
+    height: 30px;
+}
+.input_textarea{
+    resize: vertical;
+    max-height: 300px;
+    min-height: 50px;
+    height: 80px;
+}
+.button{
+    background-color: rgb(100, 137, 204);
+    outline: none;
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+}
+.post{
+    width: 500px;
+    background-color: rgb(199, 199, 199);
+    padding: 30px;
+}
+
+.post_button{
+    text-decoration: none;
+    color: white;
+    background-color: rgb(59, 128, 59);
+    padding: 5px;
+    border-radius: 5px;
+}
+.delete{
+    background-color: rgb(128, 59, 59);
+}
+.info{
+    background-color: rgb(59, 108, 128);
+}
+
+.posts{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

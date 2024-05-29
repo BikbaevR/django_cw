@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'cw/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+
+        <div>
+            <a class="post_button info" href="{% url 'categories'%}">Категории</a>
+        </div>
+
+        <div class="forma">
+            <form class="form" action="/add_post" method="post">
+                {% csrf_token %}
+                <input class="input_text" type="text" name="title" placeholder="Заголовок">
+                <input class="input_textarea" name="description" placeholder="Описание">
+                <input class="input_text" type="text" name="author" placeholder="Автор" value="admin" disabled>
+                <select name="category">
+                    {% for category in categoryes %}
+                    <option value="{{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+                <button class="button" type="submit">Добавить</button>
+            </form>
+        </div>
+
+
+        <div class="posts">
+            {% for post in posts %}
+                <div class="post">
+                    <div class="post_data">
+                        <p class="post_title"><b>title:</b> {{ post.title }}</p>
+                        <p class="post_description"><b>description:</b> {{ post.description }}</p>
+                        <p class="post_created_date"><b>created_date:</b> {{ post.created_date }}</p>
+                        <p class="post_author"><b>author:</b> {{ post.author }}</p>
+                        <p class="post_category"><b>category:</b> {{ post.category.name }}</p>
+                    </div>
+                    <div class="post_buttons">
+                        <a class="post_button info" href="{% url 'post' id=post.id %}">Информация</a>
+                        <a class="post_button" href="{% url 'change_post_view' id=post.id %}">Изменить</a>
+                        <a class="post_button delete" href="{% url 'delete_post' id=post.id %}">Удалить</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</body>
+</html>
