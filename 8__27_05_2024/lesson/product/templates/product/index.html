@@ -35,7 +35,7 @@
 
     <div>
         {% for shop in shops %}
-            <p class="paragraph">{{shop.id}}. {{shop.name}} <a href="{% url 'store' store_id=shop.id %}">Кнопка</a></p>
+            <p class="paragraph">{{shop.id}}. {{shop.name}} <a href="{% url 'store' store_id=shop.id %}">Перейти</a></p>
         {% endfor %}
     </div>
 </body>

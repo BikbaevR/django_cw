@@ -8,6 +8,11 @@
     <title>change_categ</title>
 </head>
 <body>
-
+        <form action="/change_categ_confirm" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="category_id" value="{{ id }}">
+        <input type="text" name="category_name" value="{{ category.name }}">
+        <button type="submit">Сохранить</button>
+    </form>
 </body>
 </html>
