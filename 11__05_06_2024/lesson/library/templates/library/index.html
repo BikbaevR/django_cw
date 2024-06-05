@@ -11,24 +11,34 @@
     <title>Index</title>
 </head>
 <body>
-    <form class="form" action="{% url 'add_book' %}" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-
-        <input type="text" name="book_name">
-        <input type="file" name="book_image">
-        <button type="submit">Создать</button>
-    </form>
-
-
     <div class="container">
-        {% for book in books %}
-        <div class="img_card">
-            {{ book.name }}
-            <img style="width: 200px" src="media/{{ book.image }}">
-            <a class="button" href="{% url 'delete' id=book.id %}">Удалить</a>
+        <div class="main_block">
+            {% for book in books %}
+                <div class="img_card">
+                    {{ book.name }}
+                    <img style="width: 200px" src="{{ book.image.url }}">
+                    <a class="button" href="{% url 'delete' id=book.id %}">Удалить</a>
+                </div>
+            {% endfor %}
         </div>
+        <div class="side">
+            <div class="tools">
+                <a href="{% url 'add_categ_view'%}">Добавить категорию</a><br>
+            </div>
+            <hr>
+            <div class="category_list">
+                {% for category in categories %}
+                    <a href="{% url 'category' id=category.id %}">{{ category.name }}</a><br>
+                {% endfor %}
+            </div>
+            <hr>
+            <div class="author_list">
+                {% for author in authors %}
+                    <a href="{% url 'author' id=author.id %}">{{ author.name }}</a><br>
+                {% endfor %}
+            </div>
 
-    {% endfor %}
+        </div>
     </div>
 
 </body>
