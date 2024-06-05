@@ -1,0 +1,47 @@
+<!doctype html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'library/css/style.css' %}">
+    <title>Index</title>
+</head>
+<body>
+    <h2>{{ author.name }}</h2>
+
+    <div class="container">
+        <div class="main_block">
+            {% for book in books %}
+                <div class="img_card">
+                    {{ book.name }}
+                    <img style="width: 200px" src="{{ book.image.url }}">
+                    <a class="button" href="{% url 'delete' id=book.id %}">Удалить</a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="side">
+            <div class="tools">
+                <a href="{% url 'add_categ_view'%}">Добавить категорию</a><br>
+            </div>
+            <hr>
+            <div class="category_list">
+                {% for category in categories %}
+                    <a href="{% url 'category' id=category.id %}">{{ category.name }}</a><br>
+                {% endfor %}
+            </div>
+            <hr>
+            <div class="author_list">
+                {% for author in authors %}
+                    <a href="{% url 'author' id=author.id %}">{{ author.name }}</a><br>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
