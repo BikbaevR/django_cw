@@ -10,6 +10,11 @@ class MyForm(forms.Form):
 
 
 class StudentForm(forms.ModelForm):
+    required_css_class = 'form'
+
+    name = forms.CharField(label="Имя")
+
     class Meta:
         model = Student
         fields = 'name', 'age', 'email'
+        # fields = '__all__'

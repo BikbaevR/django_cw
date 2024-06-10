@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 class Student(models.Model):
@@ -10,7 +11,6 @@ class Student(models.Model):
     class Meta:
         verbose_name = 'Студент'
         verbose_name_plural = 'Студенты'
-
 
     def __str__(self):
         return self.name
