@@ -13,6 +13,32 @@
 <body>
     <div>
         <p>Главная страница</p>
+
+        {% if request.user.is_authenticated %}
+         <form action="" method="post">
+             {% csrf_token %}
+             {{ form.as_p }}
+             <button>Добавить</button>
+         </form>
+        {% endif %}
+
+
+        {% for post in posts %}
+            <div>
+                <p>
+                    {{ post.title }}
+                </p>
+
+                <p>
+                    {{ post.author.username }}
+                </p>
+            </div>
+        {% endfor %}
+
+
+
+
+
     </div>
 </body>
 </html>

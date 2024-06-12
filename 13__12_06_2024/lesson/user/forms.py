@@ -11,6 +11,6 @@ class SignupForm(UserCreationForm):
 
 
 
-class SigninForm(AuthenticationForm):
+class SigninForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
