@@ -1,15 +1,30 @@
 <!doctype html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'cw/css/style.css' %}">
     <title>Категории</title>
 </head>
 <body>
+
+    <div class="forma">
+        <form class="form" action="/add_category" method="post">
+            {% csrf_token %}
+            <input class="input_text" type="text" name="categ_name" placeholder="Название категории">
+            <button class="button" type="submit">Добавить</button>
+        </form>
+    </div>
+
+    <hr>
+     <a class="post_button info" href="{% url 'index' %}">На главную</a>
+
+    <h3>Список категорий</h3>
     {% for category in categ %}
-        <a href="{% url 'category' id=category.id %}">{{ category.name }}</a><br />
+        <p><a href="{% url 'category' id=category.id %}">{{ category.name }}</a></p>
     {% endfor %}
 </body>
 </html>

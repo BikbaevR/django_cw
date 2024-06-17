@@ -23,9 +23,10 @@ def categories(request):
 def category(request, id):
 
     posts = Post.objects.filter(category=Category.objects.get(pk=id))
-    print(post)
 
-    return render(request, 'cw/category.html', context={'posts': posts})
+    categ = Category.objects.get(pk=id)
+
+    return render(request, 'cw/category.html', context={'posts': posts, 'category': categ})
 
 
 def post(request, id):
@@ -41,7 +42,11 @@ def post(request, id):
 
 
 def add_category(request):
-    ...
+    categ_name = request.POST.get('categ_name')
+    if categ_name:
+        categ = Category(name=categ_name)
+        categ.save()
+        return redirect('categories')
 
 
 def add_post(request):
@@ -111,8 +116,33 @@ def add_comment(request):
     post = Post.objects.get(pk=post_id)
 
     com.post = post
-
-
     com.save()
+    return redirect(request.META.get('HTTP_REFERER'))
+
+
+
+def edit_category_name(request):
+    categ_id = request.POST.get('categ_id')
+    new_category_name = request.POST.get('new_categ_name')
+
+    category = Category.objects.get(pk=categ_id)
+    category.name = new_category_name
+    category.save()
 
     return redirect(request.META.get('HTTP_REFERER'))
+
+
+
+def delete_category(request, id):
+    category = Category.objects.get(pk=id)
+    category.delete()
+    return redirect('categories')
+
+
+def delete_post_in_categ(request, id):
+    category = Category.objects.get(pk=id)
+    posts = Post.objects.filter(category=category)
+    posts.delete()
+    return redirect('categories')
+
+

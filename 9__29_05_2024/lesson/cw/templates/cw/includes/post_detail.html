@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="posts">
+        <div class="post">
+            <div class="post_data">
+                <p class="post_title"><b>title:</b> {{ post.title }}</p>
+                <p class="post_description"><b>description:</b> {{ post.description }}</p>
+                <p class="post_created_date"><b>created_date:</b> {{ post.created_date }}</p>
+                <p class="post_author"><b>author:</b> {{ post.author }}</p>
+                <p class="post_category"><b>category:</b> {{ post.category.name }}</p>
+            </div>
+            <div class="post_buttons">
+                    <a class="post_button info" href="{% url 'index' %}">Назад</a>
+                </div>
+        </div>
+    </div>
+    <div class="forma">
+        <form class="form" action="/add_comment" method="post">
+            {% csrf_token %}
+            <input class="input_text" type="hidden" name="id" placeholder="id" value="{{ post.id }} ">
+            <input class="input_text" type="text" name="author" placeholder="Автор">
+            <input class="input_textarea" name="comment" placeholder="Комментарий">
+            <button class="button" type="submit">Сохранить</button>
+        </form>
+    </div>
+</div>

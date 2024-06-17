@@ -1,0 +1,14 @@
+<div class="forma">
+    <form class="form" action="/add_post" method="post">
+        {% csrf_token %}
+        <input class="input_text" type="text" name="title" placeholder="Заголовок">
+        <input class="input_textarea" name="description" placeholder="Описание">
+        <input class="input_text" type="text" name="author" placeholder="Автор" value="admin" disabled>
+        <select name="category">
+            {% for category in categoryes %}
+            <option value="{{ category.id }}">{{ category.name }}</option>
+            {% endfor %}
+        </select>
+        <button class="button" type="submit">Добавить</button>
+    </form>
+</div>

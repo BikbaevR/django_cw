@@ -1,0 +1,12 @@
+<div class="comments">
+    {% for comment in comments %}
+    <div class="comment">
+        <p>
+            <b>Автор:</b> {{ comment.author }}<br />
+            <b>Комментарий:</b> {{ comment.comment}}<br />
+            <b>Дата написания:</b> {{ comment.created_date}}<br />
+            <b>Пост:</b> {{ comment.post}}<br />
+        </p>
+    </div>
+    {% endfor %}
+</div>
