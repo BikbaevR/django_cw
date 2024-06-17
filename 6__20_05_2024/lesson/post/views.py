@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Category, Post
 from django.shortcuts import get_object_or_404
@@ -80,3 +80,51 @@ def post_info(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
 
     return render(request, 'post/post_info.html', context={'post': post})
+
+
+def add_post(request):
+    categ = Category.objects.first()
+    if categ:
+        Post.objects.create(
+            title="Один пост",
+            content="Контент",
+            description="Описание",
+            category=categ,
+            is_published=True,
+        )
+    return redirect('post')
+
+
+def add_multi_post(request):
+    categ = Category.objects.first()
+    if categ:
+        for i in range(10):
+            Post.objects.create(
+                title=f"Пост {i+1}",
+                content=f"Контент поста {i+1}",
+                description=f"Описание поста {i+1}",
+                category=categ,
+                is_published=True
+            )
+    return redirect('post')
+
+
+
+def update_titles(request):
+    posts = Post.objects.all()
+    for post in posts:
+        post.title = f"{post.title} ({post.id})"
+        post.save()
+    return redirect('post')
+
+
+
+def delete_ne_chetniy_post(request):
+    posts = Post.objects.all()
+    for post in posts:
+        title_parts = post.title.split()
+        if title_parts and title_parts[-1].strip('()').isdigit():
+            post_id = int(title_parts[-1].strip('()'))
+            if post_id % 2 != 0:
+                post.delete()
+    return redirect('post')
