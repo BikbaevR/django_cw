@@ -43,15 +43,17 @@ def create_reservation(request):
         date_end = request.POST['date_end']
         user = request.POST['user']
 
-        room_obj = Room.objects.get(pk=number)
+        room_obj = HotelRoom.objects.get(pk=number)
         user_obj = User.objects.get(pk=user)
 
-        new_reservation = HotelReservation(number=room_obj, date_start=date_start, date_end=date_end, user=user_obj)
+        new_reservation = Reservation.objects.create(room=room_obj, date_start=date_start, date_end=date_end)
+        new_reservation.user = user_obj
+
         new_reservation.save()
         return redirect('create_reservation')
 
-    context = {'reservations': HotelReservation.objects.all(),
-               'rooms:' : HotelRoom.objects.all()}
+    context = {'reservations': Reservation.objects.all(),
+               'rooms': HotelRoom.objects.all()}
 
 
     return render(request, 'hotel/create_reservation.html', context)
