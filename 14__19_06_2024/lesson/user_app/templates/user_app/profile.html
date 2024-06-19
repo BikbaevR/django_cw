@@ -10,20 +10,7 @@
     <title>profile</title>
 </head>
 <body>
-    <header class="header">
-        <div class="buttons">
-            <p><a class="logo" href="{% url 'index' %}">Гостиница</a></p>
-        </div>
-        <div class="buttons">
-            {% if request.user.is_authenticated %}
-                <a class="button" href="{% url 'profile' %}">Профиль</a>
-                <a class="button" href="{% url 'logout' %}">Выйти</a>
-            {% else %}
-                <a class="button" href="{% url 'register' %}">Регистрация</a>
-                <a class="button" href="{% url 'login' %}">Авторизация</a>
-            {% endif %}
-        </div>
-    </header>
+    {% include 'hotel/header.html'%}
 
     <h2>Профиль пользователя - {{ user }}</h2>
 </body>

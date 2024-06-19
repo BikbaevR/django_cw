@@ -1,0 +1,33 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'user_app/css/style.css' %}">
+    <title>Add new room</title>
+</head>
+<body>
+    {% include 'hotel/header.html'%}
+    <form class="form" action="" method="post" enctype="multipart/form-data">
+      {% csrf_token%}
+      <input type="number" placeholder="Номер комнаты" name="number">
+      <select name="type">
+        {% for room_type in room_types %}
+          <option value="{{ room_type.id }}">{{ room_type.name }}</option>
+        {% endfor %}
+      </select>
+      <input type="number" placeholder="Цена за ночь" name="price">
+      <textarea placeholder="Описание" name="description"></textarea>
+      <input type="file" accept="image/*" name="photo">
+      <button type="submit">Создать</button>
+    </form>
+  <hr>
+
+    {% for room in rooms %}
+      <p>Комната: {{ room.number }}</p>
+    {% endfor %}
+</body>
+</html>

@@ -7,16 +7,20 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'user_app/css/style.css' %}">
-    <title>register</title>
+    <title>create_room_type</title>
 </head>
 <body>
     {% include 'hotel/header.html'%}
 
-    <h2>Регистрация</h2>
-    <form class="form" action="{% url 'register' %}" method="post">
+    <form class="form" action="{% url 'create_room_type' %}" method="post">
         {% csrf_token %}
-        {{ register_form }}
-        <button type="submit">Войти</button>
+        <input type="text" placeholder="Тип комнаты" name="room_type">
+        <button type="submit">Создать</button>
     </form>
+    <hr>
+
+    {% for room in room_type %}
+        <p>{{ room.name }}</p>
+    {% endfor %}
 </body>
 </html>
