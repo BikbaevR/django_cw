@@ -47,3 +47,21 @@ a{
     background-color: #d3d3d3;
     padding: 10px;
 }
+.img{
+    height: 200px;
+    width: auto;
+}
+.block{
+    background-color: #e4e4e4;
+    padding: 10px;
+    border-radius: 5px;
+    width: max-content;
+}
+.content{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.padding{
+    margin-bottom: 40px;
+}

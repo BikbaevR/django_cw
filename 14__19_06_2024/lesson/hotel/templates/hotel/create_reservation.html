@@ -25,5 +25,13 @@
         <input type="text" placeholder="Пользователь" name="user" value="{{ request.user.id }}">
         <button type="submit">Создать</button>
     </form>
+
+    <hr>
+
+    {% for reserved in reservations %}
+        <p>Резервация: {{ reserved.room }}</p>
+    {% endfor %}
+
+
 </body>
 </html>

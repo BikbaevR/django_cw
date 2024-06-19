@@ -27,4 +27,4 @@ class Reservation(models.Model):
     user = models.ManyToManyField(User)
 
     def __str__(self):
-        return self.room
+        return str(self.room)

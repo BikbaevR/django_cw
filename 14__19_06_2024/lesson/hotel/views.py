@@ -1,9 +1,13 @@
 from django.shortcuts import render, redirect
 from .models import *
+from django.contrib.auth.models import User
+
 
 def index(request):
+    rooms = HotelRoom.objects.all()
+    context = {'rooms': rooms}
 
-    return render(request, 'hotel/index.html')
+    return render(request, 'hotel/index.html', context)
 
 
 def create_room_type(request):
@@ -35,7 +39,6 @@ def create_room(request):
     return render(request, 'hotel/create_room.html', context)
 
 
-
 def create_reservation(request):
     if request.method == 'POST':
         number = request.POST['number']
@@ -47,13 +50,15 @@ def create_reservation(request):
         user_obj = User.objects.get(pk=user)
 
         new_reservation = Reservation.objects.create(room=room_obj, date_start=date_start, date_end=date_end)
-        new_reservation.user = user_obj
+        new_reservation.save()
+        # new_reservation.user = user_obj
+        # new_reservation.user.set(user_obj)
+        new_reservation.user.add(user_obj)
 
         new_reservation.save()
         return redirect('create_reservation')
 
     context = {'reservations': Reservation.objects.all(),
                'rooms': HotelRoom.objects.all()}
-
 
     return render(request, 'hotel/create_reservation.html', context)
