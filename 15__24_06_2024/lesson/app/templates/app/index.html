@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="{% url 'index' %}" method="post">
+    {% csrf_token %}
+
+<!--    {% for error in form.title.errors %}-->
+<!--        <p class="error">{{ error }}</p>-->
+<!--    {% endfor %}-->
+
+
+
+    {% for field in form %}
+        {% for error in field.errors %}
+            {{ error }}
+        {% endfor %}
+        <p>{{ field.label }}</p>
+        {{ field }}
+    {% endfor %}
+
+
+<!--    {{ form.title.errors }}-->
+<!--    {{ form.title }}-->
+
+<!--    {{form.as_p }}-->
+
+<!--    {% if form.errors %}-->
+<!--        <p>У нас есть ошибки</p>-->
+<!--    {% endif %}-->
+
+    <button>ОТправить</button>
+</form>
+
+<style>
+    .error{
+        color: red;
+    }
+</style>
+
+
+
+</body>
+</html>
