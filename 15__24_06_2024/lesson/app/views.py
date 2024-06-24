@@ -4,7 +4,7 @@ from django import forms
 
 # Create your views here.
 
-from app.forms import PostForm
+from app.forms import PostForm, UsersForm
 
 
 def index(request):
@@ -14,11 +14,26 @@ def index(request):
         form = PostForm(request.POST)
         if form.is_valid():
             form.save()
+            form = PostForm()
         else:
-            print(form.errors)
-
+            # print(form.errors)
+            ...
 
 
     cntx = {'form': form}
 
     return render(request, 'app/index.html', cntx)
+
+
+
+def users(request):
+    form = UsersForm()
+
+    if request.method == 'POST':
+        form = UsersForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form = UsersForm()
+
+    cntx = {'form': form}
+    return render(request, 'app/users.html', cntx)
