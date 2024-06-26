@@ -1,0 +1,24 @@
+{% extends 'user_app/layouts/base.html' %}
+
+{% block title %}
+    Главная страница
+{% endblock %}
+
+{% block main %}
+    <form class="form" action="{% url 'add_post' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        <button>Добавить</button>
+    </form>
+
+    <hr>
+    {% for post in posts %}
+    <div>
+        <img style="width: 200px; height: auto" src="{{ post.image.url }}" alt="">
+        <p>{{ post.title }}</p>
+        <p>{{ post.author }}</p>
+    </div>
+
+    {% endfor %}
+{% endblock %}
