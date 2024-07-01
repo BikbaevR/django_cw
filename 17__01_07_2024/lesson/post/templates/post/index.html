@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {% for post in posts %}
+        <div class="block">
+<!--            <img style="width: 200px; height: auto" src="{{ post.images.url }}" alt=""><br/>-->
+            {{ post.title }}<br/>
+            {{ post.content }}<br/>
+<!--            <video autoplay muted controls>-->
+<!--                <source src="{{ post.video_content.url }}">-->
+<!--            </video><br />-->
+<!--            <audio controls>-->
+<!--                <source src="{{ post.audio_content.url }}">-->
+<!--            </audio>-->
+
+        </div>
+
+    {% endfor %}
+        <a href="{% url 'index' %}?page={{ next_page }}">next</a>
+        <a href="{% url 'index' %}?page={{ prev_page }}">prev</a>
+</body>
+</html>
