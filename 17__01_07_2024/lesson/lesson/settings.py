@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'post',
     'user_app',
+    'home_work',
 ]
 
 MIDDLEWARE = [
