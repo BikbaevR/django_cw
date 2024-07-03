@@ -1,0 +1,26 @@
+<p class="user_name">Профиль пользователя - {{ request.user.username }}</p>
+    <div>
+        <p>Список моих резюме</p>
+        {% if resume_list %}
+            {% for resume in resume_list %}
+                <div>
+                    {{ forloop.counter }}. {{ resume.name }}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Резюме еще не создано</p>
+        {% endif %}
+
+    </div>
+    <div>
+        <p>Список моих отзывов</p>
+        {% if request_list %}
+            {% for req in request_list %}
+            <div>
+                {{ forloop.counter }}. {{ req.vacancy.title }}
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>Нет ни одного отклика</p>
+        {% endif %}
+    </div>

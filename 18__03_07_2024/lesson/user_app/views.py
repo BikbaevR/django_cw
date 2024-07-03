@@ -2,9 +2,11 @@ from django.shortcuts import render, redirect
 from .form import UserAuthForm, SignInForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
-
+from headHunter.models import *
 
 def register(request):
+    if request.user.is_authenticated:
+        redirect('index')
     if request.method == 'POST':
         reg_form = UserAuthForm(request.POST)
         if reg_form.is_valid():
@@ -18,6 +20,8 @@ def register(request):
 
 
 def login_view(request):
+    if request.user.is_authenticated:
+        redirect('index')
     if request.method == 'POST':
         fw = SignInForm(request.POST)
         print('login 1')
@@ -40,12 +44,7 @@ def login_view(request):
 
 
 # @user_passes_test(check_user_permision, login_url='login')
-@login_required(login_url='login')
-def profile_view(request):
-    # if not request.user.is_authenticated:
-    #     return redirect('login')
-    ctx = {'user': request.user}
-    return render(request, 'user_app/profile.html', ctx)
+
 
 
 def logout_view(request):

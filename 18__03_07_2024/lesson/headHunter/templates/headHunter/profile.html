@@ -6,5 +6,8 @@
 
 
 {% block main %}
-    <p>Профиль пользователя - {{ user }}</p>
+    {% if not user.is_staff %}
+        {% include 'headHunter/includes/profile.html' %}
+    {% endif %}
+
 {% endblock %}
