@@ -1,7 +1,37 @@
 *{
     box-sizing: border-box;
+    color: white;
 }
 
 body{
     background-color: #424242;
+}
+
+header{
+    background-color: #5a5a5a;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    padding: 0 20px;
+
+    margin-bottom: 20px;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+header a{
+    text-decoration: none;
+    color:white;
+}
+header ul{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+header ul li{
+    margin: 0 20px;
+    list-style-type: none;
 }

@@ -7,13 +7,13 @@
     flex-direction: column;
     width: 300px;
     gap: 10px;
-    background-color: #ededed;
+    background-color: #757575;
     padding: 10px;
     border-radius: 5px;
 }
-/*.form  span{*/
-/*    display: none;*/
-/*}*/
+.form input{
+    color: black;
+}
 
 .header{
     width: 100%;
@@ -64,4 +64,8 @@ a{
 }
 .padding{
     margin-bottom: 40px;
+}
+
+form button{
+    color: black;
 }

@@ -1,5 +1,12 @@
+{% load static %}
+
 <ul>
-    <a href="http://">Регистрация</a>
-    <a href="http://">Авторизация</a>
-    <a href="http://">Выйти</a>
+    <link rel="stylesheet" href="{% static 'headHunter/css/style.css' %}">
+    <li><a href="{% url 'index' %}">Главная</a></li>
+    {% if not request.user.is_authenticated %}
+        <li><a href="{% url 'register' %}">Регистрация</a></li>
+        <li><a href="{% url 'login' %}">Авторизация</a></li>
+    {% else %}
+        <li><a href="{% url 'logout' %}">Выйти</a></li>
+    {% endif %}
 </ul>

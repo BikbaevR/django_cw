@@ -7,13 +7,14 @@
     <title>{% block title %} Default title {% endblock %}</title>
 </head>
 <body>
+    <header>{% include 'headHunter/includes/header.html' %}</header>
     <div class="contaner">
-        <header></header>
         <main>
             {% block main %}
             {% endblock %}
         </main>
         <footer></footer>
     </div>
+    <footer>{% include 'headHunter/includes/footer.html' %}</footer>
 </body>
 </html>
