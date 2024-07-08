@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from django.views import View  #-
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView  #-
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView  #-
 from .models import Post
 from .forms import *
 from django.urls import reverse_lazy
@@ -88,3 +88,9 @@ class PostUpdateView(UpdateView):
     model = Post
     pk_url_kwarg = 'post_id'
 
+
+class PostDeleteView(DeleteView):
+    model = Post
+
+    template_name = 'post/post_create.html'
+    success_url = reverse_lazy('post_list')
