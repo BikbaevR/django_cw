@@ -1,0 +1,24 @@
+.container{
+
+}
+
+.item{
+    background-color: #efefef;
+    padding: 0px 0px 5px 0px;
+    width: max-content;
+
+    box-shadow: 3px 6px 5px 0px rgba(0,0,0,0.21);
+    -webkit-box-shadow: 3px 6px 5px 0px rgba(0,0,0,0.21);
+    -moz-box-shadow: 3px 6px 5px 0px rgba(0,0,0,0.21);
+}
+.text{
+    padding: 10px;
+}
+.input_form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.button{
+    margin-top: 10px;
+}

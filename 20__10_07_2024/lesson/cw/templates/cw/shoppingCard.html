@@ -1,0 +1,21 @@
+{% include 'cw/base.html' %}
+
+
+{% block main %}
+    <div class="button">
+        <a href="{% url 'clear_shopping_card' %}">Очистить корзину</a>
+        <a href="{% url 'heckout' %}">Оформить заказ</a>
+    </div>
+
+
+  {% for shoppingCard in shoppingCards %}
+    <div class="item">
+            <img src="/media/{{ shoppingCard.dish_id.img }}" alt="Карточка товара"><br/>
+            <div class="text">
+                <span>{{ shoppingCard.dish_id }}</span><br/>
+                <span>{{ shoppingCard.dish_id.price }}</span><br/>
+                <span>{{ shoppingCard.quantity }}</span><br/>
+            </div>
+        </div>
+  {% endfor %}
+{% endblock %}
