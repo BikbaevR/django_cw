@@ -1,0 +1,11 @@
+{% extends 'spotify/base/base.html' %}
+{% block title %}Музыка{% endblock title %}
+
+
+{% block content %}
+    <div class="genre genres_content">
+        <img src="{{ music.image.url }}" alt="">
+        <p>Название: {{ music.name }}</p>
+        <p>Жанры: {{ genres_str }}</p>
+    </div>
+{% endblock content %}
