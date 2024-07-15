@@ -7,5 +7,8 @@
         <img src="{{ music.image.url }}" alt="">
         <p>Название: {{ music.name }}</p>
         <p>Жанры: {{ genres_str }}</p>
+        <audio controls>
+            <source src="{{ music.file.url }}">
+        </audio>
     </div>
 {% endblock content %}

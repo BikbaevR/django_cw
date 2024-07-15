@@ -35,6 +35,14 @@ class MusicDetail(DetailView):
     template_name = 'spotify/one_music.html'
     context_object_name = 'music'
 
+
+    def get(self, request, *args, **kwargs):
+        History.objects.create(
+            music=Music.objects.get(pk=self.kwargs['pk']),
+            user=self.request.user
+        )
+        return super().get(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         music = context.get('music')

@@ -59,7 +59,13 @@ class History(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     listened_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f'{self.user.username} - {self.music.name}'
+
 
 class MusicLikes(models.Model):
     music = models.ForeignKey(Music, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
+
