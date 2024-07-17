@@ -35,7 +35,6 @@ class MusicDetail(DetailView):
     template_name = 'spotify/one_music.html'
     context_object_name = 'music'
 
-
     def get(self, request, *args, **kwargs):
         History.objects.create(
             music=Music.objects.get(pk=self.kwargs['pk']),
@@ -50,3 +49,15 @@ class MusicDetail(DetailView):
         context['genre'] = genres
         context['genres_str'] = ', '.join(map(lambda genre: genre.name, genres))
         return context
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')
+class HistoryView(ListView):
+    model = History
+    template_name = 'spotify/history.html'
+    context_object_name = 'histories'
+    paginate_by = 15
+
+    def get_queryset(self):
+        return History.objects.filter(user=self.request.user)
+

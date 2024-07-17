@@ -1,0 +1,15 @@
+{% extends 'spotify/base/base.html' %}
+{% block title %}История{% endblock title %}
+
+{% block content %}
+
+    <h1 class="text">История прослушиваний</h1>
+
+    <div class="vertical">
+        {% for history in histories %}
+            <div class="vertical_item text">
+                {{ history.music.name }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

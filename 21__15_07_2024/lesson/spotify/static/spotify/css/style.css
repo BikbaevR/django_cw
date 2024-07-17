@@ -17,6 +17,9 @@ body{
     width: 100%;
     height: 60px;
     background-color: #1DB954;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .genres, .musics{
@@ -66,4 +69,12 @@ h1{
     color: #1DB954;
     margin-bottom: 20px;
     font-family: Calibri;
+}
+.text{
+    color: #1DB954;
+}
+.main_header a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
 }
