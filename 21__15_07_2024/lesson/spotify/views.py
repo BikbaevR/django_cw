@@ -136,6 +136,10 @@ class PlaylistViewDetailView(DetailView):
 
     def post(self, request, *args, **kwargs):
         playlist = Playlist.objects.get(pk=self.kwargs['pk'])
+
+        if playlist.user != request.user.id:
+            return redirect('error')
+
         music_id = self.request.POST['delete_button']
 
         music = Music.objects.get(pk=music_id)
