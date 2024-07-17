@@ -10,5 +10,16 @@
         <audio controls>
             <source src="{{ music.file.url }}">
         </audio>
+        <form action="" name="add_to_playlist" method="post">
+            {% csrf_token %}
+            <select name="playlist">
+                {% for playlist in playlists %}
+                    <option value="{{ playlist.id }}">{{ playlist.name }}</option>
+                {% endfor %}
+                <option disabled selected>Выбрать плейлист</option>
+            </select>
+            <button type="submit">Добавить</button>
+        </form>
+
     </div>
 {% endblock content %}

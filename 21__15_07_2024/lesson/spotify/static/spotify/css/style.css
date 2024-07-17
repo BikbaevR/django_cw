@@ -78,3 +78,14 @@ h1{
     color: black;
     font-weight: bold;
 }
+.vertical_item{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+.vertical{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
