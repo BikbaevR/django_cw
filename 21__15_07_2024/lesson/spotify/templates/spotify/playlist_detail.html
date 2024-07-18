@@ -5,6 +5,9 @@
 
     <h1 class="text">Плейлист: {{ playlist.name }}</h1>
 
+
+    <a class="text" href="{% url 'delete_playlist' pk=playlist.id %}">Удалить плейлист: {{ playlist.name }}</a>
+
     <div class="vertical">
         {% for music in playlist.musics.all %}
             <div class="vertical_item text">

@@ -89,3 +89,14 @@ h1{
     flex-direction: column;
     gap: 10px;
 }
+.form{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    width: 400px;
+    margin-bottom: 20px;
+    background-color: #1DB954;
+    padding: 10px;
+
+}

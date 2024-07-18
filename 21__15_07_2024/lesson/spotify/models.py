@@ -24,7 +24,7 @@ class Music(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     file = models.FileField(upload_to='music/')
     image = models.ImageField(upload_to='images/')
-    album = models.ForeignKey(Album, on_delete=models.SET_NULL, null=True)
+    album = models.ForeignKey(Album, on_delete=models.SET_NULL, null=True, related_name='musics')
     genres = models.ManyToManyField(Genre, related_name='musics')
     likes = models.ManyToManyField('MusicLikes', related_name='liked_music', null=True, blank=True)
     history = models.ManyToManyField(User, related_name='music_history', through='History', blank=True)
