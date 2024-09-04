@@ -1,0 +1,30 @@
+.book{
+    padding: 10px;
+    background-color: #d9d9d9;
+    width: 150px;
+    box-shadow: 5px 5px 24px 1px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 5px 5px 24px 1px rgba(0,0,0,0.5);
+    -moz-box-shadow: 5px 5px 24px 1px rgba(0,0,0,0.5);
+}
+.books{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.addBook{
+    margin: 50px 0 50px 0;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    gap: 10px;
+
+    input{
+        height: 30px;
+        padding: 0 0 0 5px;
+    }
+}
