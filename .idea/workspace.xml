@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e815dc10-d520-42c5-9405-ac522eb37192" name="Changes" comment="lesson 30">
+    <list default="true" id="e815dc10-d520-42c5-9405-ac522eb37192" name="Changes" comment="lesson 31, 32">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,15 +23,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/БикбаевР/PycharmProjects/django_cw&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/БикбаевР/PycharmProjects/django_cw",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -48,6 +55,8 @@
       <workItem from="1724863585727" duration="74000" />
       <workItem from="1725468154660" duration="89000" />
       <workItem from="1725890070491" duration="29000" />
+      <workItem from="1726073380893" duration="52000" />
+      <workItem from="1726494726772" duration="599000" />
     </task>
     <task id="LOCAL-00001" summary="lesson 29">
       <option name="closed" value="true" />
@@ -65,7 +74,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725468194896</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="lesson 31, 32">
+      <option name="closed" value="true" />
+      <created>1726073416138</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1726073416138</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -74,6 +91,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lesson 29" />
     <MESSAGE value="lesson 30" />
-    <option name="LAST_COMMIT_MESSAGE" value="lesson 30" />
+    <MESSAGE value="lesson 31, 32" />
+    <option name="LAST_COMMIT_MESSAGE" value="lesson 31, 32" />
   </component>
 </project>
